@@ -15,7 +15,7 @@ Paso 3: Configurar el proyecto
 Descargue o clone este repositorio en su máquina local.
 bash
 Copiar código
-git clone https://github.com/usuario/sistema_votacion.git
+git clone
 Copie la carpeta sistema_votacion del repositorio y péguela en la carpeta htdocs de su instalación de XAMPP. La ruta por defecto es C:\xampp\htdocs.
 Paso 4: Configurar la base de datos
 Abra su navegador web y vaya a http://localhost/phpmyadmin.
