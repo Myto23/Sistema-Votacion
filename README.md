@@ -1,26 +1,65 @@
 Sistema de Votación
-Este proyecto es un sistema de votación desarrollado en PHP y MySQL. A continuación, se detallan las instrucciones para configurar y ejecutar el proyecto en su entorno local.
+Descripción
+Este proyecto es un formulario de votación web que permite a los usuarios registrar sus votos seleccionando candidatos y proporcionando información adicional. El formulario valida los datos del usuario y los guarda en una base de datos MySQL.
 
-Requisitos
-XAMPP: Una distribución de Apache fácil de instalar que contiene MariaDB, PHP y Perl.
-Instrucciones de instalación
-Paso 1: Instalar XAMPP
-Descargue e instale XAMPP desde la página oficial.
-Siga las instrucciones del instalador para completar la instalación.
-Paso 2: Iniciar los servicios de Apache y MySQL
-Abra el Panel de Control de XAMPP.
-Inicie el servicio de Apache haciendo clic en el botón "Start" junto a Apache.
-Inicie el servicio de MySQL haciendo clic en el botón "Start" junto a MySQL.
-Paso 3: Configurar el proyecto
-Descargue o clone este repositorio en su máquina local.
-bash
+Requisitos del Sistema
+XAMPP: Usado para configurar el servidor local.
+PHP: Versión 7.4.3
+MySQL: Versión 5.7.31
+Apache: Incluido en XAMPP
+
+Instalación
+Clonar el repositorio:
+https://github.com/Myto23/Sistema-Votacion.git
+Mover el proyecto a la carpeta de XAMPP:
+Copia el proyecto clonado en la carpeta htdocs de tu instalación de XAMPP.
+
+
+Configurar la base de datos:
+
+Inicia XAMPP y asegúrate de que Apache y MySQL están corriendo.
+Abre phpMyAdmin (normalmente en http://localhost/phpmyadmin).
+Crea una nueva base de datos llamada votacion.
+Importa el archivo database/db.sql incluido en el proyecto para crear las tablas necesarias.
+Configurar la conexión a la base de datos:
+
+Abre el archivo database/db.php.
+Asegúrate de que las credenciales de conexión a la base de datos son correctas.
+php
 Copiar código
-git clone
-Copie la carpeta sistema_votacion del repositorio y péguela en la carpeta htdocs de su instalación de XAMPP. La ruta por defecto es C:\xampp\htdocs.
-Paso 4: Configurar la base de datos
-Abra su navegador web y vaya a http://localhost/phpmyadmin.
-Cree una nueva base de datos llamada sistema_votacion.
-Importe el archivo sistema_votacion.sql que se encuentra en la carpeta sql del proyecto. Esto creará las tablas necesarias y llenará la base de datos con los datos iniciales.
-Paso 5: Acceder al sistema de votación
-Abra su navegador web y vaya a http://localhost/sistema_votacion.
-Debería ver la página de inicio del sistema de votación.
+$conn = new mysqli('localhost', 'root', '', 'votacion');
+Ejecutar el proyecto:
+
+Abre tu navegador web y navega a http://localhost/Sistema_votacion/Pages/votacion.html.
+
+
+Estructura del Proyecto
+
+database/: Contiene el archivo de configuración de la base de datos db.php y el archivo db.sql para la estructura de la base de datos.
+
+PHP/: Contiene los scripts PHP para manejar las peticiones AJAX y la validación del formulario.
+get_regiones.php
+get_comunas.php
+get_candidatos.php
+votacion.php
+
+script/: Contiene el archivo JavaScript principal votacion.js que maneja la lógica del frontend.
+
+Style/: Contiene el archivo CSS votacion.css para el estilo del formulario.
+
+Pages/: Contiene la página principal que incluye el formulario de votación.
+
+Funcionalidades
+Validación del formulario: Asegura que todos los campos requeridos están completos y correctos antes de enviar.
+Validación de alias: Verifica que el alias tenga más de 5 caracteres y contenga tanto letras como números.
+Validación de RUT: Asegura que el RUT ingresado sea válido.
+Verificación de duplicados: Verifica si el RUT o el correo electrónico ya han sido utilizados para votar.
+Carga dinámica de comunas y candidatos: Utiliza AJAX para cargar comunas y candidatos basados en la región seleccionada.
+Uso
+Llenar el formulario: Completa todos los campos requeridos y selecciona al menos dos opciones en "Cómo se enteró de nosotros?".
+Enviar el formulario: Haz clic en el botón "Votar". Si todos los datos son válidos, el voto se registrará en la base de datos y los campos del formulario se limpiarán.
+
+
+Problemas Comunes
+Error al conectar a la base de datos: Verifica que el servidor MySQL está corriendo y que las credenciales de conexión en database/db.php son correctas.
+No se cargan las comunas o candidatos: Asegúrate de que los archivos PHP de la carpeta PHP están configurados correctamente y que la base de datos contiene datos válidos
