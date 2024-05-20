@@ -27,7 +27,7 @@ Abre el archivo database/db.php.
 Asegúrate de que las credenciales de conexión a la base de datos son correctas.
 php
 Copiar código
-$conn = new mysqli('localhost', 'root', '', 'votacion');
+$conn = new mysqli('localhost', 'root', '', 'sistemavotacion');
 Ejecutar el proyecto:
 
 Abre tu navegador web y navega a http://localhost/Sistema_votacion/Pages/votacion.html.
